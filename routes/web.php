@@ -17,7 +17,7 @@ $router->group(['middleware' => 'filter'], function () use ($router) {
 
     $router->get('/', 'ApiController@index');
     $router->post('/', 'ApiController@store');
-    $router->put('/', 'ApiController@update');
-    $router->delete('/', 'ApiController@delete');
+    $router->post('/{id}', 'ApiController@update');
+    $router->delete('/{id}', 'ApiController@delete');
     
 });
