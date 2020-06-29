@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ApiController extends Controller {
     
     // READ
-    public function index() {
+    public function index(Request $req) {
         return ApiDatas::all();
     }
 
