@@ -15,6 +15,11 @@ class ApiController extends Controller {
 
     // CREATE
     public function store(Request $req) {
+        $this->validate($req, [
+            'name' => 'required',
+            'year' => 'required'
+        ]);
+
         ApiDatas::create([
             'name' => $req->name,
             'year' => $req->year
@@ -27,6 +32,11 @@ class ApiController extends Controller {
 
     // UPDATE
     public function update($id, Request $req) {
+        $this->validate($req, [
+            'name' => 'required',
+            'year' => 'required'
+        ]);
+
         DB::table('api_datas')
             ->where('id', $id)
             ->update([

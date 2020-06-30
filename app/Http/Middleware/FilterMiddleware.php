@@ -19,7 +19,7 @@ class FilterMiddleware
         // Consulta no Banco de dados.
 
         $user = DB::table('api_datas')
-            ->where('name', $request->id)
+            ->where('name', $request->key)
             ->get();
 
 
@@ -29,7 +29,7 @@ class FilterMiddleware
         if($user->isEmpty()) {
             return response()->json([
                 'Status' => 400,
-                'Message' => 'Usuário não encontrado. Requisição negada.' 
+                'Message' => 'Chave não encontrada. Requisição negada.' 
             ]);
         }
 
